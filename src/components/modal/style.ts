@@ -28,7 +28,7 @@ export const ModalBox = styled.div`
   border-radius: 24px;
   font-size: 24px;
 
-  button{
+  button {
     margin-top: 30px;
   }
 `;

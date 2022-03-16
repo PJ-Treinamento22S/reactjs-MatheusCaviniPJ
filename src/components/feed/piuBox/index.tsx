@@ -15,8 +15,7 @@ function PiuBox() {
   const [colorB, setColorB] = useState("#787779");
   const [char, setChar] = useState(0);
 
-  const {setDisplay} = useContext(DisplayContext)
-
+  const { setDisplay } = useContext(DisplayContext);
 
   function handleChar(e: any) {
     setChar(e.target.value.length);
@@ -25,15 +24,21 @@ function PiuBox() {
     return e.target.value.length;
   }
 
-  function handleClick(){
-    if(char==0){
-      
-      setDisplay(["flex", "Ops... Parece que seu piu ainda está vazio!", "Preencha o campo antes de piar."])
-    }else if(char >140){
-      setDisplay(["flex", "Ops... Parece que seu piu é grande demais!", "Lembre-se do limite de 140 caracteres."])
+  function handleClick() {
+    if (char == 0) {
+      setDisplay([
+        "flex",
+        "Ops... Parece que seu piu ainda está vazio!",
+        "Preencha o campo antes de piar.",
+      ]);
+    } else if (char > 140) {
+      setDisplay([
+        "flex",
+        "Ops... Parece que seu piu é grande demais!",
+        "Lembre-se do limite de 140 caracteres.",
+      ]);
     }
   }
-
 
   return (
     <S.PiuBox>
@@ -52,7 +57,7 @@ function PiuBox() {
         <img src={vid} />
         <img src={emoji} />
         <img src={at} />
-        <Button text="Piar" height={32} width={120} onClick={handleClick}/>
+        <Button text="Piar" height={32} width={120} onClick={handleClick} />
         <S.CharCount color={color}>{char}/140</S.CharCount>
       </S.Features>
     </S.PiuBox>

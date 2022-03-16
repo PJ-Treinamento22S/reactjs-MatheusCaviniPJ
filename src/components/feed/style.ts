@@ -26,3 +26,10 @@ export const NewPiuSection = styled.div`
   justify-content: center;
   border-bottom: solid #ded3eb 4px;
 `;
+
+export const CamposPiu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 24px;
+`
