@@ -1,12 +1,15 @@
 import React from "react";
-import * as S from "./style"
+import PiuBox from "./piuBox";
+import * as S from "./style";
 
 function Feed() {
-    return(
-        <S.Feed>
-            <h2>Aqui vai o feed</h2>
-        </S.Feed>
-    )
+  return (
+    <S.Feed>
+      <S.NewPiuSection>
+        <PiuBox/>
+      </S.NewPiuSection>
+    </S.Feed>
+  );
 }
 
 export default Feed;
