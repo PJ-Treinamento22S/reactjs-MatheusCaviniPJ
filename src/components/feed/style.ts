@@ -25,5 +25,4 @@ export const NewPiuSection = styled.div`
   display: flex;
   justify-content: center;
   border-bottom: solid #ded3eb 4px;
-`
-
+`;

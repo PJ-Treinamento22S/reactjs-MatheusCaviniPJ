@@ -5,7 +5,7 @@ interface ButtonBoxProps {
   width: number;
 }
 
-export const ButtonBox = styled.div<ButtonBoxProps>`
+export const ButtonBox = styled.button<ButtonBoxProps>`
   background-color: #7831be;
   height: ${(props) => props.height + "px"};
   width: ${(props) => props.width + "px"};

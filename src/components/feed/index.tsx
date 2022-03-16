@@ -6,7 +6,7 @@ function Feed() {
   return (
     <S.Feed>
       <S.NewPiuSection>
-        <PiuBox/>
+        <PiuBox />
       </S.NewPiuSection>
     </S.Feed>
   );

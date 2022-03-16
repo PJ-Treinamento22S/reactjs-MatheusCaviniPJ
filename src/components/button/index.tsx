@@ -7,9 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ height, width, text }) => {
+const Button: React.FC<ButtonProps> = ({ height, width, text, onClick }) => {
   return (
-    <ButtonBox height={height} width={width}>
+    <ButtonBox height={height} width={width} onClick={onClick}>
       {text}
     </ButtonBox>
   );
