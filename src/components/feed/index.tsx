@@ -5,7 +5,6 @@ import * as S from "./style";
 import api from "../../config/API";
 import { UserName } from "../friendsBar/friendCard/style";
 
-
 interface piuProps {
   user: {
     username: string;
@@ -14,13 +13,14 @@ interface piuProps {
   id?: string;
   text: string;
   likes: any;
+  created_at: string;
 }
 
-interface reloadData{
-  setReload: React.Dispatch<React.SetStateAction<string>>
+interface reloadData {
+  setReload: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const RealoadContext = createContext({} as reloadData)
+export const RealoadContext = createContext({} as reloadData);
 
 function Feed() {
   const [pius, setPius] = useState<piuProps[]>([]);
@@ -35,7 +35,7 @@ function Feed() {
   return (
     <S.Feed>
       <S.NewPiuSection>
-        <RealoadContext.Provider value = {{ setReload }}>
+        <RealoadContext.Provider value={{ setReload }}>
           <PiuBox />
         </RealoadContext.Provider>
       </S.NewPiuSection>
@@ -47,6 +47,7 @@ function Feed() {
             photo={piu.user.photo}
             username={piu.user.username}
             likes={piu.likes.length}
+            created_at={piu.created_at}
           />
         ))}
       </S.CamposPiu>

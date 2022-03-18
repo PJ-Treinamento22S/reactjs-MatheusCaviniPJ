@@ -44,16 +44,17 @@ function PiuBox() {
       ]);
     } else {
       console.log("postando");
-      api.post("/pius", {text: piu}  ).then(function (response){
-        console.log(response);
-      }).catch(function (error) {
-    console.log(error);
-    });
+      api
+        .post("/pius", { text: piu })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       content.value = "";
       setChar(0);
       setReload(piu);
-      
-      
     }
   }
 
