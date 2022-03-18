@@ -11,7 +11,7 @@ export const FriendsBar = styled.div`
   height: 100%;
   width: 20%;
   background: white;
-  justify-content: start;
+  justify-content: flex-start;
   border-left: solid #ded3eb 4px;
 
   h2 {
@@ -47,6 +47,17 @@ export const SearchResults = styled.div<SearchResultsProps>`
   height: ${(props) => (props.isHigh ? "600px" : "0px")};
   margin-bottom: 64px;
   transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(211, 209, 209);
+    border-radius: 3px;
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -68,6 +79,8 @@ export const FriendsList = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  overflow-x: hidden;
+  flex-shrink: 2;
 
   ::-webkit-scrollbar {
     width: 6px;

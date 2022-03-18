@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { ReactDOM } from "react";
 import * as S from "./style";
 import myPhoto from "../../../img/pp.jpeg";
 import cam from "../../../img/camera.svg";
@@ -7,20 +6,24 @@ import vid from "../../../img/video.svg";
 import emoji from "../../../img/smile.svg";
 import at from "../../../img/at-sign.svg";
 import Button from "../../button";
-import Modal from "../../modal";
 import { DisplayContext } from "../../../App";
+import api from "../../../config/API";
 
 function PiuBox() {
   const [color, setColor] = useState("black");
   const [colorB, setColorB] = useState("#787779");
   const [char, setChar] = useState(0);
+  const [piu, setPiu] = useState("");
+  const [content, setContent] = useState<any>();
 
   const { setDisplay } = useContext(DisplayContext);
 
   function handleChar(e: any) {
     setChar(e.target.value.length);
+    setPiu(e.target.value);
     setColor(e.target.value.length > 140 ? "#a00" : "black");
     setColorB(e.target.value.length > 140 ? "#a00" : "#787779");
+    setContent(e.target);
     return e.target.value.length;
   }
 
@@ -37,6 +40,11 @@ function PiuBox() {
         "Ops... Parece que seu piu é grande demais!",
         "Lembre-se do limite de 140 caracteres.",
       ]);
+    } else{
+        const cont = {text: {piu}, user:{username: "Matheus_Cavini", photo: "../../../img/pp.jpeg"}}
+        api.post("/pius", cont );
+        content.value = ""
+        setChar(0);
     }
   }
 

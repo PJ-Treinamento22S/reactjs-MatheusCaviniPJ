@@ -5,13 +5,14 @@ import * as S from "./style";
 interface friendCardProps {
   photo?: string;
   name?: string;
+  online?: boolean;
 }
 
-const FriendCard: React.FC<friendCardProps> = ({ name, photo }) => {
+const FriendCard: React.FC<friendCardProps> = ({ name, photo, online }) => {
   return (
     <S.FriendCard>
       <S.UserCircle src={photo} />
-      <div className="online"></div>
+      {online && <div className="online"></div>}
       <S.UserName>{name}</S.UserName>
     </S.FriendCard>
   );

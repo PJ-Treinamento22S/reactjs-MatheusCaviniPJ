@@ -5,6 +5,7 @@ export const Feed = styled.div`
   width: 62%;
   background: white;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-right: 4px;
   h2 {
     font-size: 24px;
@@ -32,4 +33,4 @@ export const CamposPiu = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 24px;
-`
+`;

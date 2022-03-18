@@ -1,19 +1,23 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import SideBar from "./components/sidebar/index";
 import GlobalStyles from "./styles/global";
 import Feed from "./components/feed/index";
 import FriendsBar from "./components/friendsBar/index";
 import { Body } from "./style";
 import Modal from "./components/modal";
+import api from "./config/API"
+
+
 
 interface DisplayContextData {
   setDisplay: React.Dispatch<React.SetStateAction<string[]>>;
 }
-export const DisplayContext = createContext({} as DisplayContextData);
+export const DisplayContext = createContext({} as DisplayContextData)
+
 
 function App() {
   const [display, setDisplay] = useState(["none", "", ""]);
-
+  
   return (
     <Body>
       <GlobalStyles></GlobalStyles>
