@@ -7,6 +7,7 @@ import emoji from "../../../img/smile.svg";
 import at from "../../../img/at-sign.svg";
 import Button from "../../button";
 import { DisplayContext } from "../../../App";
+import { RealoadContext } from "../../feed/index";
 import api from "../../../config/API";
 
 function PiuBox() {
@@ -17,6 +18,7 @@ function PiuBox() {
   const [content, setContent] = useState<any>();
 
   const { setDisplay } = useContext(DisplayContext);
+  const { setReload } = useContext(RealoadContext);
 
   function handleChar(e: any) {
     setChar(e.target.value.length);
@@ -40,11 +42,18 @@ function PiuBox() {
         "Ops... Parece que seu piu é grande demais!",
         "Lembre-se do limite de 140 caracteres.",
       ]);
-    } else{
-        const cont = {text: {piu}, user:{username: "Matheus_Cavini", photo: "../../../img/pp.jpeg"}}
-        api.post("/pius", cont );
-        content.value = ""
-        setChar(0);
+    } else {
+      console.log("postando");
+      api.post("/pius", {text: piu}  ).then(function (response){
+        console.log(response);
+      }).catch(function (error) {
+    console.log(error);
+    });
+      content.value = "";
+      setChar(0);
+      setReload(piu);
+      
+      
     }
   }
 

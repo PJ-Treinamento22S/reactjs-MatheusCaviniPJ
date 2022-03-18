@@ -15,18 +15,18 @@ function FriendsBar() {
     setShowUsers(false);
   }
 
-  const[users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<any[]>([]);
 
-  useEffect(()=>{
-    api.get("/users").then(response => { 
+  useEffect(() => {
+    api.get("/users").then((response) => {
       setUsers(response.data);
-      console.log(response)});
-    }, []);
+      console.log(response);
+    });
+  }, []);
 
-
-  const [search, setSearch] = useState("")
-  function handleSearch(e: any){
-    const search = e.target.value; 
+  const [search, setSearch] = useState("");
+  function handleSearch(e: any) {
+    const search = e.target.value;
     setSearch(search);
   }
 
@@ -43,11 +43,29 @@ function FriendsBar() {
         />
       </S.Search>
       <S.SearchResults isHigh={showUsers}>
-        {users.map(user=> (search!="" && user.username.toLowerCase().startsWith(search.toLowerCase())) &&<FriendCard online= {false} key = {user.id} name={user.username} photo ={user.photo}/>)}
+        {users.map(
+          (user) =>
+            search != "" &&
+            user.username.toLowerCase().startsWith(search.toLowerCase()) && (
+              <FriendCard
+                online={false}
+                key={user.id}
+                name={user.username}
+                photo={user.photo}
+              />
+            )
+        )}
       </S.SearchResults>
       <h2>Amigos online</h2>
       <S.FriendsList>
-        {users.map(user => <FriendCard online= {true} key = {user.id} name={user.username} photo ={user.photo}/>)}
+        {users.map((user) => (
+          <FriendCard
+            online={true}
+            key={user.id}
+            name={user.username}
+            photo={user.photo}
+          />
+        ))}
       </S.FriendsList>
     </S.FriendsBar>
   );

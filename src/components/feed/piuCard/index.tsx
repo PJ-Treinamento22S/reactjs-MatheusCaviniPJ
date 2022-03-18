@@ -1,19 +1,40 @@
-import React from "react";
+import React, {useState} from "react";
 import * as S from "./style";
 
 import likeIcon from "../../../img/Heart.svg";
+import likeIconFill from "../../../img/heartFill.svg"
 import highlight from "../../../img/highlight.svg";
 import repost from "../../../img/repeat.svg";
 import report from "../../../img/report.svg";
 
-interface PiuCardProps{
-  username:string;
+interface PiuCardProps {
+  username: string;
   photo: string;
-  text:string;
+  text: string;
   likes: number;
 }
 
-const PiuCard:React.FC<PiuCardProps> =({username, photo, text, likes})=>{
+
+
+
+
+const PiuCard: React.FC<PiuCardProps> = ({ username, photo, text, likes }) => {
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(likes)
+  const [icon, setIcon] = useState(likeIcon);
+
+  function handleLike(e:any){
+  if(liked){
+    setLikeCount(likeCount-1);
+    setIcon(likeIcon)
+  }else{
+    setLikeCount(likeCount+1);
+    setIcon(likeIconFill);
+  }
+  setLiked(!liked);
+  
+
+}
   return (
     <S.Card>
       <S.PhotoAndPiu>
@@ -29,9 +50,9 @@ const PiuCard:React.FC<PiuCardProps> =({username, photo, text, likes})=>{
         </S.UserAndPiu>
       </S.PhotoAndPiu>
       <S.Reactions>
-        <S.Likes>
-          <img src={likeIcon} alt="" />
-          <p>{likes}</p>
+        <S.Likes onClick={handleLike}>
+          <img src={icon} alt=""  />
+          <p>{likeCount}</p>
         </S.Likes>
         <img src={highlight} alt="" />
         <img src={repost} alt="" />
@@ -39,6 +60,6 @@ const PiuCard:React.FC<PiuCardProps> =({username, photo, text, likes})=>{
       </S.Reactions>
     </S.Card>
   );
-}
+};
 
 export default PiuCard;

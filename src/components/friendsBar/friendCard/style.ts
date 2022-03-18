@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 
-
 export const FriendCard = styled.div`
   background: #eee6f5;
   height: 56px;
@@ -12,7 +11,6 @@ export const FriendCard = styled.div`
   align-items: center;
   margin: 4px 8px;
 
-
   .online {
     background: rgb(28, 223, 28);
     height: 10px;
@@ -22,7 +20,6 @@ export const FriendCard = styled.div`
     top: -16px;
     left: -10px;
   }
-  
 `;
 
 export const UserCircle = styled.img`

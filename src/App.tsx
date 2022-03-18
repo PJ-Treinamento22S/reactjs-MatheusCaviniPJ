@@ -5,19 +5,16 @@ import Feed from "./components/feed/index";
 import FriendsBar from "./components/friendsBar/index";
 import { Body } from "./style";
 import Modal from "./components/modal";
-import api from "./config/API"
-
-
+import api from "./config/API";
 
 interface DisplayContextData {
   setDisplay: React.Dispatch<React.SetStateAction<string[]>>;
 }
-export const DisplayContext = createContext({} as DisplayContextData)
-
+export const DisplayContext = createContext({} as DisplayContextData);
 
 function App() {
   const [display, setDisplay] = useState(["none", "", ""]);
-  
+
   return (
     <Body>
       <GlobalStyles></GlobalStyles>
